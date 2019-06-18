@@ -1,6 +1,6 @@
 package model
 
-import model.Category.Category
+import .Category
 import model.Difficulty.Difficulty
 
 import scala.concurrent.duration.Duration
