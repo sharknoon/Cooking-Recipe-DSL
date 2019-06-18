@@ -1,0 +1,12 @@
+Titel: Lasagne
+Dauer: 120min
+Personen: 2
+Autor: Simon Mennig
+Kategorien: Italienisch, Nudelgericht, Kochen
+Schwierigkeit: fortgeschritten
+Zutaten:
+> 250g Rinderhack
+> 1x Zwiebel
+Schritte:
+Bolognese kochen
+Ofen vorheizen
