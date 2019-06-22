@@ -33,7 +33,7 @@ class RecipeParser extends RegexParsers {
 
   // every char until line break
   private def string: Parser[String] =
-    """\w*""".r ^^ (_.toString)
+    """\w+""".r ^^ (_.toString)
 
   private def integer: Parser[Int] =
     """\d+""".r ^^ (_.toInt)
@@ -45,7 +45,7 @@ class RecipeParser extends RegexParsers {
     rep(categoriesWithComma) ~ line ^^ (cats => cats._1.appended(cats._2))
 
   private def categoriesWithComma: Parser[String] =
-    string ~ ", " ^^ (_._1.replace(", ", ""))
+    string ~ ", " ^^ (_._1)
 
   private def difficulty: Parser[Difficulty] =
     string ^^ {
@@ -59,7 +59,7 @@ class RecipeParser extends RegexParsers {
     rep(ingredient)
 
   private def ingredient: Parser[Ingredient] =
-    "> " ~ opt(" ") ~ integer ~ string ~ opt(" ") ~ line ^^ {
+    ">" ~ opt(" ") ~ integer ~ string ~ opt(" ") ~ line ^^ {
       case _ ~ _ ~ amount ~ unit ~ _ ~ name =>
         Ingredient(name, amount.toDouble, unit)
     }
